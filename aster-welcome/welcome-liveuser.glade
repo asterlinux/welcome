@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.40.0 -->
+<interface>
+  <requires lib="gtk+" version="3.24"/>
+  <object class="GtkApplicationWindow" id="window">
+    <property name="can-focus">False</property>
+    <property name="title" translatable="yes">Welcome</property>
+    <property name="resizable">False</property>
+    <property name="default-width">800</property>
+    <property name="default-height">600</property>
+    <property name="icon">asterlinux-logo.png</property>
+    <property name="startup-id">welcome</property>
+    <child>
+      <object class="GtkFixed" id="fixed_grid">
+        <property name="width-request">800</property>
+        <property name="height-request">600</property>
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="border-width">10</property>
+        <child>
+          <!-- n-columns=3 n-rows=1 -->
+          <object class="GtkGrid" id="logo_grid">
+            <property name="name">logo_grid</property>
+            <property name="width-request">800</property>
+            <property name="height-request">50</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="row-homogeneous">True</property>
+            <property name="column-homogeneous">True</property>
+            <child>
+              <object class="GtkImage" id="logo">
+                <property name="name">logo</property>
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="pixbuf">asterlinux-logo.png</property>
+              </object>
+              <packing>
+                <property name="left-attach">1</property>
+                <property name="top-attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox" id="button_box">
+            <property name="name">info</property>
+            <property name="width-request">800</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="orientation">vertical</property>
+            <property name="spacing">10</property>
+            <child>
+              <object class="GtkLabel" id="welcome_label">
+                <property name="name">name</property>
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">Welcome To Aster Linux</property>
+                <property name="justify">center</property>
+                <property name="wrap">True</property>
+                <property name="wrap-mode">word-char</property>
+                <attributes>
+                  <attribute name="font-desc" value="Sans Bold 20"/>
+                  <attribute name="style" value="oblique"/>
+                  <attribute name="weight" value="bold"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="welcome_info">
+                <property name="name">paragraph</property>
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="xpad">10</property>
+                <property name="ypad">10</property>
+                <property name="label" translatable="yes">Aster Linux is an Arch based distro made for easy 
+and fast uasbility in mind.It is fast and much more 
+stable than vanila arch since 
+the intergration with flatpaks for all GUI applications</property>
+                <property name="wrap">True</property>
+                <attributes>
+                  <attribute name="font-desc" value="Source Code Pro Medium 10"/>
+                  <attribute name="style" value="italic"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <!-- n-columns=2 n-rows=3 -->
+              <object class="GtkGrid" id="buttons">
+                <property name="name">click</property>
+                <property name="height-request">100</property>
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="row-spacing">10</property>
+                <property name="column-spacing">10</property>
+                <property name="row-homogeneous">True</property>
+                <property name="column-homogeneous">True</property>
+                <child>
+                  <object class="GtkButton" id="install">
+                    <property name="label" translatable="yes">Install Aster Linux</property>
+                    <property name="height-request">60</property>
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">True</property>
+                  </object>
+                  <packing>
+                    <property name="left-attach">0</property>
+                    <property name="top-attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="support">
+                    <property name="label" translatable="yes">Support</property>
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">True</property>
+                  </object>
+                  <packing>
+                    <property name="left-attach">1</property>
+                    <property name="top-attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="applications">
+                    <property name="label" translatable="yes">Add/Remove Programmes</property>
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">True</property>
+                  </object>
+                  <packing>
+                    <property name="left-attach">0</property>
+                    <property name="top-attach">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="mirror">
+                    <property name="label" translatable="yes">Update Mirrors</property>
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">True</property>
+                  </object>
+                  <packing>
+                    <property name="left-attach">1</property>
+                    <property name="top-attach">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="release">
+                    <property name="label" translatable="yes">Release</property>
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">True</property>
+                  </object>
+                  <packing>
+                    <property name="left-attach">0</property>
+                    <property name="top-attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="web">
+                    <property name="label" translatable="yes">Web</property>
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">True</property>
+                  </object>
+                  <packing>
+                    <property name="left-attach">1</property>
+                    <property name="top-attach">2</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="y">215</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="autostart">
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">False</property>
+            <property name="margin-top">9</property>
+            <property name="margin-bottom">7</property>
+            <property name="active">True</property>
+            <property name="draw-indicator">True</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">Autostart</property>
+                <attributes>
+                  <attribute name="font-desc" value="Sans Bold Italic 12"/>
+                </attributes>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">694</property>
+            <property name="y">576</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

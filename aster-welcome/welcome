@@ -1,0 +1,83 @@
+#!/bin/python
+
+import gi
+gi.require_version("Gtk", "3.0")
+from gi.repository import Gtk
+import subprocess
+import webbrowser
+import shutil
+import os
+
+class Main:
+    def __init__(self):
+        home = os.environ["HOME"]
+        if home == "/home/aster":
+            gladefile= "/usr/share/welcome/welcome-liveuser.glade"
+            live_user = True
+        else:
+            gladefile= "/usr/share/welcome/welcome.glade"
+            live_user = False
+
+        self.builder = Gtk.Builder()
+        self.builder.add_from_file(gladefile)
+
+        window = self.builder.get_object("window")
+        window.connect("delete-event",Gtk.main_quit)
+        window.show()
+
+        if live_user == True:
+            calamares = self.builder.get_object("install")
+            calamares.connect("clicked",self.install)
+
+        if live_user == False:
+            wallpapr = self.builder.get_object("wallpaper")
+            wallpapr.connect("clicked",self.wallpaper)
+
+        mirrors = self.builder.get_object("mirror")
+        mirrors.connect("clicked",self.mirrors)
+
+
+        support = self.builder.get_object("support")
+        support.connect("clicked",self.support)
+
+        web = self.builder.get_object("web")
+        web.connect("clicked",self.web) 
+
+        release = self.builder.get_object("release")
+        release.connect("clicked",self.release)
+
+        applications = self.builder.get_object("applications")
+        applications.connect("clicked",self.pamac)
+
+
+
+    # launch calamares installer
+    def install(self,widget):
+        subprocess.call("calamares")
+        
+    # update pacman mirrors from a script
+    def mirrors(self,widget):
+        subprocess.call("mirrorup")
+    
+    def wallpaper(self,widget):
+        pass
+    
+    # open aster linux support page,home page,release page
+    def support(self,widget):
+        webbrowser.open_new("https://asterlinux.github.io/support")
+    def web(self,widget):
+        webbrowser.open_new("https://asterlinux.github.io")
+    def release(self,widget):
+        webbrowser.open_new("https://asterlinux.github.io/release")
+
+    # add/remove software launch
+    def pamac(self,widget):
+        subprocess.call("pamac")
+
+        
+
+if __name__ == '__main__':
+    main = Main()
+    Gtk.main()
+
+
