@@ -1,0 +1,14 @@
+#!/bin/python
+
+import os
+import subprocess
+
+home = os.environ["HOME"]
+
+config_file_dir = f"{home}/.config/welcome/welcome.conf"
+with open(config_file_dir,"r") as config:
+	config_file = config.readline()
+	if int(config_file) == 1:
+		subprocess.call("welcome")
+	else:
+		pass

@@ -11,11 +11,12 @@ import os
 class Main:
     def __init__(self):
         home = os.environ["HOME"]
+
         if home == "/home/aster":
             gladefile= "/usr/share/welcome/welcome-liveuser.glade"
             live_user = True
         else:
-            gladefile= "/usr/share/welcome/welcome.glade"
+            gladefile= "welcome.glade"
             live_user = False
 
         self.builder = Gtk.Builder()
@@ -49,6 +50,21 @@ class Main:
         applications = self.builder.get_object("applications")
         applications.connect("clicked",self.pamac)
 
+        autostart = self.builder.get_object("autostart_switch")
+        autostart.connect("notify::active",self.autostart)
+
+
+
+       
+
+    
+        config_file_dir = f"{home}/.config/welcome/welcome.conf"
+        with open(config_file_dir,"r") as config:
+            config_file = config.readline()
+            if int(config_file) == 0:
+                autostart.set_active(False)
+            else:
+                pass
 
 
     # launch calamares installer
@@ -57,7 +73,7 @@ class Main:
         
     # update pacman mirrors from a script
     def mirrors(self,widget):
-        subprocess.call("mirrorup")
+        subprocess.call("reflector --age 6 --latest 21 --fastest 21 --threads 21 --sort rate --protocol https --save /etc/pacman.d/mirrorlist")
     
     def wallpaper(self,widget):
         pass
@@ -73,6 +89,21 @@ class Main:
     # add/remove software launch
     def pamac(self,widget):
         subprocess.call("pamac")
+    
+    def autostart(self,autostart,gpram):
+        if autostart.get_active():
+            state = "1"
+        else:
+            state = "0"
+        home = os.environ["HOME"]
+        config_file_dir = f"{home}/.config/welcome/welcome.conf"
+        config_file = open(config_file_dir,"w")
+        config_file.write(state)
+        config_file.close()    
+
+    def about(self,about_click,gpram):
+        about = self.builder.get_object("about")
+        about.show()    
 
         
 
