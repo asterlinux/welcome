@@ -1,0 +1,25 @@
+import os
+import gi
+gi.require_version("Gtk", "3.0")
+from gi.repository import Gtk, Gio
+
+class ConfiguratorWindow(Gtk.Window):
+
+    def __init__(self):
+        Gtk.Window.__init__(self, title="Qtile Configurator")
+        self.set_border_width(10)
+        self.set_default_size(500, 300)
+
+        vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
+        self.add(vbox)
+
+        # Create a sidebar with current keybinds and layouts
+        sidebar = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
+        vbox.pack_start(sidebar, True, True, 0)
+
+        keybinds_label = Gtk.Label("Current Keybinds:")
+        keybinds_label.set_halign(Gtk.Align.START)
+        sidebar.pack_start(keybinds_label, False, False, 0)
+
+        keybinds_list = Gtk.ListBox()
+        keybinds_list.set_selection_mode(Gtk.SelectionMode.N
