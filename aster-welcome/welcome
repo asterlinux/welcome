@@ -1,11 +1,10 @@
 #!/bin/python
 
+import webbrowser
+import subprocess
 import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
-import subprocess
-import webbrowser
-import shutil
 import os
 
 class Main:
@@ -16,7 +15,7 @@ class Main:
             gladefile= "/usr/share/welcome/welcome-liveuser.glade"
             live_user = True
         else:
-            gladefile= "welcome.glade"
+            gladefile= "/usr/share/welcome/welcome.glade"
             live_user = False
 
         self.builder = Gtk.Builder()
@@ -26,16 +25,17 @@ class Main:
         window.connect("delete-event",Gtk.main_quit)
         window.show()
 
-        if live_user == True:
+        if live_user is True:
             calamares = self.builder.get_object("install")
             calamares.connect("clicked",self.install)
 
-        if live_user == False:
+        if live_user is False:
             wallpapr = self.builder.get_object("wallpaper")
             wallpapr.connect("clicked",self.wallpaper)
 
         mirrors = self.builder.get_object("mirror")
-        mirrors.connect("clicked",self.mirrors)
+        mirrors.connect("clicked",self.mirror)
+        
 
 
         support = self.builder.get_object("support")
@@ -53,11 +53,11 @@ class Main:
         autostart = self.builder.get_object("autostart_switch")
         autostart.connect("notify::active",self.autostart)
 
-
+        about_button = self.builder.get_object("about_button")
+        about_button.connect("clicked",self.about)
 
        
 
-    
         config_file_dir = f"{home}/.config/welcome/welcome.conf"
         with open(config_file_dir,"r") as config:
             config_file = config.readline()
@@ -67,16 +67,19 @@ class Main:
                 pass
 
 
+
     # launch calamares installer
     def install(self,widget):
-        subprocess.call("calamares")
-        
-    # update pacman mirrors from a script
-    def mirrors(self,widget):
-        subprocess.call("reflector --age 6 --latest 21 --fastest 21 --threads 21 --sort rate --protocol https --save /etc/pacman.d/mirrorlist")
+        subprocess.run("calamares")
     
+        
+    def mirror(self,mirrors):
+        mirrors.set_property("label","Updating Mirrors")
+        subprocess.run(["pkexec", "/usr/bin/reflector", "--age", "6", "--latest", "21", "--fastest", "21", "--threads", "21", "--sort", "rate", "--protocol", "https", "--save", "/etc/pacman.d/mirrorlist"], shell=False,check=False)
+        
+
     def wallpaper(self,widget):
-        pass
+        subprocess.run("")
     
     # open aster linux support page,home page,release page
     def support(self,widget):
@@ -88,7 +91,7 @@ class Main:
 
     # add/remove software launch
     def pamac(self,widget):
-        subprocess.call("pamac")
+        subprocess.run("plasma-discover")
     
     def autostart(self,autostart,gpram):
         if autostart.get_active():
@@ -97,18 +100,22 @@ class Main:
             state = "0"
         home = os.environ["HOME"]
         config_file_dir = f"{home}/.config/welcome/welcome.conf"
-        config_file = open(config_file_dir,"w")
+        config_file = open(config_file_dir,"w",encoding="UTF-8")
         config_file.write(state)
         config_file.close()    
 
-    def about(self,about_click,gpram):
-        about = self.builder.get_object("about")
-        about.show()    
+    def about(self,about_button):
 
-        
+        about_file = "/usr/share/welcome/about.glade"
+        self.builder = Gtk.Builder()
+        self.builder.add_from_file(about_file)
+
+        about = self.builder.get_object("about")
+        about.connect("delete-event",about.close)
+        about.show()
+
+
 
 if __name__ == '__main__':
     main = Main()
     Gtk.main()
-
-

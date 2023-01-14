@@ -14,6 +14,8 @@ package() {
 	install -Dm775 welcome.desktop ${pkgdir}/usr/share/applications/welcome.desktop
 	install -Dm775 welcome.glade ${pkgdir}/usr/share/welcome/welcome.glade
 	install -Dm775 welcome-liveuser.glade ${pkgdir}/usr/share/welcome/welcome-liveuser.glade
+	install -Dm775 mirrors.glade ${pkgdir}/usr/share/welcome/mirrors.glade
+	install -Dm775 about.glade ${pkgdir}/usr/share/welcome/about.glade
 	install -Dm775 asterlinux-logo.png ${pkgdir}/usr/share/welcome/asterlinux-logo.png
 	install -Dm775 autostart ${pkgdir}/usr/share/welcome/autostart
 	local bin=$pkgdir/usr/bin
