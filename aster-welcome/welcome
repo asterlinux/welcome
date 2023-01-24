@@ -70,7 +70,7 @@ class Main:
 
     # launch calamares installer
     def install(self,widget):
-        subprocess.run("calamares")
+        subprocess.run(["pkexec", "calamares"])
     
         
     def mirror(self,mirrors):
