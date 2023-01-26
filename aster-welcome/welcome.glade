@@ -55,6 +55,9 @@
             <property name="can-focus">False</property>
             <property name="orientation">vertical</property>
             <property name="spacing">10</property>
+            <child type="center">
+              <placeholder/>
+            </child>
             <child>
               <object class="GtkLabel" id="welcome_label">
                 <property name="name">name</property>
@@ -65,7 +68,7 @@
                 <property name="wrap">True</property>
                 <property name="wrap-mode">word-char</property>
                 <attributes>
-                  <attribute name="font-desc" value="Sans Bold 20"/>
+                  <attribute name="font-desc" value="Sans Bold 25"/>
                   <attribute name="style" value="oblique"/>
                   <attribute name="weight" value="bold"/>
                 </attributes>
@@ -192,7 +195,7 @@ the intergration with flatpaks for all GUI applications</property>
             </child>
           </object>
           <packing>
-            <property name="y">215</property>
+            <property name="y">239</property>
           </packing>
         </child>
         <child>
