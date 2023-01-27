@@ -148,7 +148,7 @@
                 <property name="wrap">True</property>
                 <property name="wrap-mode">word-char</property>
                 <attributes>
-                  <attribute name="font-desc" value="Sans Bold 20"/>
+                  <attribute name="font-desc" value="Sans Bold 23"/>
                   <attribute name="style" value="oblique"/>
                   <attribute name="weight" value="bold"/>
                 </attributes>
@@ -275,7 +275,7 @@ the intergration with flatpaks for all GUI applications</property>
             </child>
           </object>
           <packing>
-            <property name="y">215</property>
+            <property name="y">238</property>
           </packing>
         </child>
         <child>
@@ -291,7 +291,7 @@ the intergration with flatpaks for all GUI applications</property>
           </object>
           <packing>
             <property name="x">626</property>
-            <property name="y">589</property>
+            <property name="y">599</property>
           </packing>
         </child>
         <child>
@@ -302,7 +302,7 @@ the intergration with flatpaks for all GUI applications</property>
           </object>
           <packing>
             <property name="x">733</property>
-            <property name="y">591</property>
+            <property name="y">602</property>
           </packing>
         </child>
         <child>
@@ -315,7 +315,7 @@ the intergration with flatpaks for all GUI applications</property>
           </object>
           <packing>
             <property name="x">12</property>
-            <property name="y">590</property>
+            <property name="y">599</property>
           </packing>
         </child>
       </object>

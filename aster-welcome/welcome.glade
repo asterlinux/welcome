@@ -211,7 +211,7 @@ the intergration with flatpaks for all GUI applications</property>
           </object>
           <packing>
             <property name="x">626</property>
-            <property name="y">589</property>
+            <property name="y">599</property>
           </packing>
         </child>
         <child>
@@ -222,7 +222,7 @@ the intergration with flatpaks for all GUI applications</property>
           </object>
           <packing>
             <property name="x">733</property>
-            <property name="y">591</property>
+            <property name="y">602</property>
           </packing>
         </child>
         <child>
@@ -236,7 +236,7 @@ the intergration with flatpaks for all GUI applications</property>
           </object>
           <packing>
             <property name="x">12</property>
-            <property name="y">590</property>
+            <property name="y">604</property>
           </packing>
         </child>
       </object>
