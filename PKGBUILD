@@ -1,7 +1,7 @@
 # Maintainer: Sahan Rasanjana <sahan.user@gmail.com>
 pkgname=aster-welcome
 pkgver=1
-pkgrel=8
+pkgrel=9
 pkgdesc="Aster Linux Welcome application"
 arch=("x86_64")
 url="https://github.com/asterlinux/welcome"
