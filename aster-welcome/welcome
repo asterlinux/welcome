@@ -76,7 +76,7 @@ class Main:
     def mirror(self,mirrors):
         mirrors.set_property("label","Updating Mirrors")
         subprocess.run(["pkexec", "/usr/bin/reflector", "--age", "6", "--latest", "21", "--fastest", "21", "--threads", "21", "--sort", "rate", "--protocol", "https", "--save", "/etc/pacman.d/mirrorlist"], shell=False,check=True)
-        
+        mirrors.set_property("label","Mirrors Updated")
 
     def wallpaper(self,widget):
         subprocess.run("variety")
