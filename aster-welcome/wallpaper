@@ -1,0 +1,6 @@
+#!/bin/fish
+
+set s ""
+yad --picture --size fit /usr/share/backgrounds/asterlinux/* --geometry 864x486 --button=yad-close --center --file-op --image-changed=set %s img
+
+echo $img

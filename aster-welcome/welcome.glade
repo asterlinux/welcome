@@ -87,9 +87,7 @@
                 <property name="xpad">10</property>
                 <property name="ypad">10</property>
                 <property name="label" translatable="yes">Aster Linux is an Arch based distro made for easy 
-and fast uasbility in mind.It is fast and much more 
-stable than vanila arch since 
-the intergration with flatpaks for all GUI applications</property>
+and fast uasbility in mind.</property>
                 <property name="wrap">True</property>
                 <attributes>
                   <attribute name="font-desc" value="Source Code Pro Medium 10"/>

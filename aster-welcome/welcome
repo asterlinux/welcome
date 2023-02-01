@@ -48,7 +48,7 @@ class Main:
         release.connect("clicked",self.release)
 
         applications = self.builder.get_object("applications")
-        applications.connect("clicked",self.pamac)
+        applications.connect("clicked",self.discover)
 
         autostart = self.builder.get_object("autostart_switch")
         autostart.connect("notify::active",self.autostart)
@@ -79,7 +79,7 @@ class Main:
         
 
     def wallpaper(self,widget):
-        subprocess.run("")
+        subprocess.run("variety")
     
     # open aster linux support page,home page,release page
     def support(self,widget):
@@ -90,8 +90,8 @@ class Main:
         webbrowser.open_new("https://asterlinux.github.io/release")
 
     # add/remove software launch
-    def pamac(self,widget):
-        subprocess.run("plasma-discover",check=True)
+    def discover(self,widget):
+        subprocess.run("plasma-discover")
     
     def autostart(self,autostart,gpram):
         if autostart.get_active():
