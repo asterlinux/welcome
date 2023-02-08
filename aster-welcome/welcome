@@ -102,7 +102,7 @@ class Main:
         config_file_dir = f"{home}/.config/welcome/welcome.conf"
         config_file = open(config_file_dir,"w",encoding="UTF-8")
         config_file.write(state)
-        config_file.close()    
+        config_file.close()
 
     def about(self,about_button):
 
